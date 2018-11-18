@@ -1,6 +1,6 @@
 {
   "name": "twilight-sparkle-leaderboard",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Online Leaderboard of Twilight Sparkle showing the Top 200 players with Levels, Money, Items, Gems, Votes and Bonbons worldwide.",
   "main": "index.html",
   "scripts": {
