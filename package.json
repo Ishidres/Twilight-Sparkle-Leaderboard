@@ -1,0 +1,25 @@
+{
+  "name": "twilight-sparkle-leaderboard",
+  "version": "3.0.0",
+  "description": "Online Leaderboard of Twilight Sparkle showing the Top 200 players with Levels, Money, Items, Gems, Votes and Bonbons worldwide.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ishidres/Twilight-Sparkle-Leaderboard.git"
+  },
+  "keywords": [
+    "Games",
+    "RPG",
+    "Leaderboard",
+    "Website"
+  ],
+  "author": "Ishidres / Ishidres#0001 / ishidres.twilightbot.eu",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Ishidres/Twilight-Sparkle-Leaderboard/issues"
+  },
+  "homepage": "https://github.com/Ishidres/Twilight-Sparkle-Leaderboard#readme"
+}

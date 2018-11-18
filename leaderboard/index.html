@@ -1,0 +1,217 @@
+<!doctype html>
+<!--
+  Wanna download and use the source code of this site?
+  It's avaliable on GitHub:
+  https://github.com/Ishidres/Twilight-Sparkle-Leaderboard
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Twilight Leaderboard</title>
+  <meta name="description" content="Online Leaderboard of Twilight Sparkle showing the Top 200 players with Levels, Money, Items, Gems, Votes and Bonbons worldwide.">
+  <meta name="author" content="Ishidres">
+
+  <link rel="icon" href="img/icon.png">
+  <link rel="icon" sizes="192x192" href="img/icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
+
+  <script src="scripts/scripts.js"></script> 
+  <link rel="stylesheet" href="css/styles.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Fetching Leaderboard from TwilightBot API -->
+  <script type="text/javascript" src="https://twilightbot.eu/api/leaderboard.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<script>
+
+</script>
+
+<body onload="setLeaderboard(); startTimer(); var el = document.querySelector('.skip-loading-class'); fadeOut(el); var el = document.querySelector('.se-pre-con'); fadeOut(el);">;
+  <div class="se-pre-con"></div>
+  <div class="skip-loading-class">
+    <div style="position: relative; left: -50%; text-align: center; font-size: 25px;">
+      <div id="skip-loading">
+        <p onclick="finishLoading();">
+          <b>
+            <i>Still loading?</i>
+            <br><a href="#">Skip this loading screen!</a>
+          </b>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="https://twilightbot.eu/">Home</a>
+    <a href="https://twilightbot.eu/docs">Docs</a>
+    <a class="active" href="#">Leaderboard</a>
+    <a href="https://discordbots.org/bot/349966335352242187" target="_blank">DiscordBots</a>      
+    <a href="https://patreon.com/Ishidres" target="_blank">Patreon</a>
+    <a href="https://twilightbot.eu/ishidres" target="_blank">Ishidres</a>
+  </div>
+
+  <div class='time-to unselectable'>
+    Leaderboard Refresh in:
+    <p id="timer">
+  </div>
+
+  <div class="main">
+    <div class="github-buttons">
+      <br> <a class="github-button" href="https://github.com/Ishidres" data-size="large" data-show-count="true" aria-label="Follow @Ishidres on GitHub">Follow @Ishidres</a>
+      <br> <a class="github-button" href="https://github.com/Ishidres/Twilight-Sparkle-Leaderboard/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download Ishidres/Twilight-Sparkle-Leaderboard on GitHub">Download</a>        
+      <br> <a class="github-button" href="https://github.com/Ishidres/Twilight-Sparkle-Leaderboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star on GitHub">Star</a>
+    </div>
+
+    <div class="table-buttons unselectable">
+
+      <p onclick="show('level-lb'); select('btn1');" class="button" id="btn1" style="background: #9eff98; color: black;">Levels</p>
+      <p onclick="show('money-lb'); select('btn2');" class="button" id="btn2">Money</p>
+      <p onclick="show('items-lb'); select('btn3');" class="button" id="btn3">Items</p>
+      <br>
+      <p onclick="show('gems-lb'); select('btn4');" class="button" id="btn4">Gems</p>
+      <p onclick="show('votes-lb'); select('btn5');" class="button" id="btn5">Votes</p>
+      <p onclick="show('bonbons-lb'); select('btn6');" class="button" id="btn6">Bonbons</p>
+    </div>
+
+    <div class="container">
+        <div class="col1">
+            <div class="boxed">
+              <h1><u>How it works</u></h1>
+              <p>
+                You gain a random amount of money and experience every time you text something or execute a command.
+                To prevent people from spamming, there is a cooldown, so you can only get experience and money once every few seconds.
+                <br><br>
+                When you level up, you get money rewards and role rewards if the server owner set them up.
+                Also, the RPG is global, which means you have the same Level, Balance, etc. on every server which uses Twilight Sparkle.
+              </p>
+            </div>
+        </div>
+
+        <div class="col2">
+
+          <div id="level-lb">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>EXP</th>
+                  <th>Level</th>
+              </thead>
+              <tbody>
+                <tfoot id="level-table">
+                  <tr><td>Loading...</td><td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="money-lb" style="display: none;">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Balance</th>
+              </thead>
+              <tbody>
+                <tfoot id="money-table">
+                  <tr><td>Loading...</td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="items-lb" style="display: none;">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Item Worth</th>
+              </thead>
+              <tbody>
+                <tfoot id="item-table">
+                  <tr><td>Loading...</td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="gems-lb" style="display: none;">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Amount of Gems</th>
+              </thead>
+              <tbody>
+                <tfoot id="gems-table">
+                  <tr><td>Loading...</td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="votes-lb" style="display: none;">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Votes this month</th>
+              </thead>
+              <tbody>
+                <tfoot id="votes-table">
+                  <tr><td>Loading...</td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="bonbons-lb" style="display: none;">
+            <table>
+              <thead>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Amount of Bonbons</th>
+              </thead>
+              <tbody>
+                <tfoot id="bonbons-table">
+                  <tr><td>Loading...</td><td><td></tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+  
+        </div>
+    </div>
+
+    <a href="https://patreon.com/Ishidres" target="blank_">
+      <img src="https://twilightbot.eu/docs/img/patron.png" class="patreon-img">
+    </a>
+  </div>
+
+  <!-- <div class="audioplayer">
+      <a href="https://radio.newgrounds.com/" target="_blank"><img src="images/ng-logo.png" width="40" height="39"></a>
+      <audio controls>
+          <source src="https://radio-stream01.ungrounded.net/electronic" type="audio/ogg">
+      </audio>
+  </div> -->
+</body>
+
+<noscript>  
+  <div style="position: absolute; left: 50%; bottom: 50px; z-index: 9999">
+    <div style="position: relative; left: -50%; text-align: center; border: solid red 5px; padding: 5px;">
+      <h3><b>JavaScript</b> must be enabled to view this page!</h3>
+      <h4><a target="_blank" href="http://www.enable-javascript.com/">How can I enable JavaScript?</a></h6>
+  </div>
+</noscript>
+</html>
