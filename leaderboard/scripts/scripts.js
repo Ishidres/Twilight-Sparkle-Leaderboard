@@ -94,7 +94,7 @@ function setLeaderboard () {
   }
 
   var gems_table_string = "";
-  for (i=0; i<lbAPI.items.length; i++) {
+  for (i=0; i<lbAPI.gems.length; i++) {
     gems_table_string = gems_table_string + "<tr>";
     gems_table_string = gems_table_string + "<td>#" + Number(i+1) + "</td>";    
     gems_table_string = gems_table_string + '<td>' + '<img src="' + lbAPI.gems[i][3] + '">';
@@ -104,7 +104,7 @@ function setLeaderboard () {
   }
 
   var votes_table_string = "";
-  for (i=0; i<lbAPI.items.length; i++) {
+  for (i=0; i<lbAPI.votes.length; i++) {
     votes_table_string = votes_table_string + "<tr>";
     votes_table_string = votes_table_string + "<td>#" + Number(i+1) + "</td>";    
     votes_table_string = votes_table_string + '<td>' + '<img src="' + lbAPI.votes[i][3] + '">';
@@ -114,7 +114,7 @@ function setLeaderboard () {
   }
   
   var bonbons_table_string = "";
-  for (i=0; i<lbAPI.items.length; i++) {
+  for (i=0; i<lbAPI.bonbons.length; i++) {
     bonbons_table_string = bonbons_table_string + "<tr>";
     bonbons_table_string = bonbons_table_string + "<td>#" + Number(i+1) + "</td>";    
     bonbons_table_string = bonbons_table_string + '<td>' + '<img src="' + lbAPI.bonbons[i][3] + '">';
