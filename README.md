@@ -14,7 +14,7 @@ Want to use my Discord Bot? You can invite it [here](https://twilightbot.eu/invi
 # Examples
 
 Importing Leaderboard API:
-```javascript
+```html
 <head>
   ...
   <!-- Fetching Leaderboard from TwilightBot API -->
@@ -24,7 +24,7 @@ Importing Leaderboard API:
 ```
 
 Navigation bar with countdown:
-```javascript
+```html
 <div class="navbar">
   <a href="https://twilightbot.eu/">Home</a>
   <a href="https://twilightbot.eu/docs">Docs</a>
@@ -38,7 +38,7 @@ Navigation bar with countdown:
 ```
 
 Left column with information box:
-```javascript
+```html
 <div class="container">
   <div class="col1">
     <div class="boxed">
@@ -55,7 +55,7 @@ Left column with information box:
 ```
 
 Right colum with leaderboard table:
-```javascript
+```html
 <div class="container">
   ...
   <div class="col2">
